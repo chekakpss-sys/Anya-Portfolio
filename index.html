@@ -984,24 +984,23 @@
 
     .card-vertical-title {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      width: 100%;
-      padding: 1.5rem;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      text-align: center;
+      flex-direction: column;
+      justify-content: center !important;
+      align-items: center !important;
+      padding: 2rem !important;
+      text-align: center !important;
       font-family: var(--font-serif, "Playfair Display", serif) !important;
-      font-weight: 700 !important;
-      font-size: 2.2rem !important;
+      font-size: clamp(1.45rem, 1.9vw, 1.85rem) !important;
+      font-weight: 600 !important;
       letter-spacing: 0.02em !important;
-      line-height: 1.1 !important;
-      max-width: 100%;
-      white-space: normal;
+      line-height: 1.35 !important;
+      max-width: 18ch;
+      margin: 0 auto;
+      text-wrap: balance;
+      word-break: normal !important;
+      hyphens: auto;
       color: #ffffff !important;
       opacity: 1;
       transition: opacity 0.3s ease;
@@ -1012,10 +1011,10 @@
     .card-hover-content {
       position: absolute !important;
       inset: 0;
-      padding: 3rem;
+      padding: 2.5rem 2rem !important;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start !important;
       opacity: 0;
       visibility: hidden;
       transform: translateY(0);
@@ -1023,6 +1022,9 @@
       transition: opacity 0.4s ease;
       z-index: 20 !important;
       color: #ffffff !important;
+      overflow-y: auto !important;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.3) transparent;
     }
 
     .card-hover-content h3 {
@@ -1763,7 +1765,7 @@
             <div class="project-grid">
               <article class="project-card featured" data-tone="pine" data-reveal>
                 <div class="project-card__wash" aria-hidden="true"></div>
-                <div class="card-vertical-title">Полный запуск складского учета<br />и новой логики ТМЦ</div>
+                <div class="card-vertical-title">Полный запуск складского учета и новой логики ТМЦ</div>
                 <div class="card-hover-content">
                   <span class="project-badge">Комплексное внедрение / девелопмент</span>
                   <h3>Запуск складского учета и строительного производства</h3>
@@ -1780,7 +1782,7 @@
 
               <article class="project-card" data-tone="wine" data-reveal data-delay="1">
                 <div class="project-card__wash" aria-hidden="true"></div>
-                <div class="card-vertical-title">Учет оборачиваемых материалов<br />и чат-бот</div>
+                <div class="card-vertical-title">Учет оборачиваемых материалов и чат-бот</div>
                 <div class="card-hover-content">
                   <span class="project-badge">SMINEX / УЧЕТ МАТЕРИАЛОВ И ИНТЕГРАЦИИ</span>
                   <h3>Учет оборачиваемых материалов и мобильный клиент</h3>
@@ -1797,7 +1799,7 @@
 
               <article class="project-card" data-tone="pine" data-reveal data-delay="2">
                 <div class="project-card__wash" aria-hidden="true"></div>
-                <div class="card-vertical-title">Интеграция B2B-закупок,<br />аккредитации и контроля</div>
+                <div class="card-vertical-title">Интеграция B2B-закупок, аккредитации и контроля</div>
                 <div class="card-hover-content">
                   <span class="project-badge">ФСК / закупки и финансы</span>
                   <h3>Тендерные закупки, B2B-интеграции и бюджетный контроль</h3>
@@ -1815,7 +1817,7 @@
 
               <article class="project-card" data-tone="wine" data-reveal data-delay="3">
                 <div class="project-card__wash" aria-hidden="true"></div>
-                <div class="card-vertical-title">Сметный учет,<br />развитие IT-продуктов и планирование стройки</div>
+                <div class="card-vertical-title">Сметный учет, развитие IT-продуктов и планирование стройки</div>
                 <div class="card-hover-content">
                   <span class="project-badge">Титан-2 / атомное строительство</span>
                   <h3>Сметный учет, развитие IT-продуктов и планирование стройки</h3>
