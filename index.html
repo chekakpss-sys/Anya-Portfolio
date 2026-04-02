@@ -1,0 +1,2144 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Анна Чекалина — Ведущий системный аналитик 1C</title>
+  <meta
+    name="description"
+    content="Персональный сайт Анны Чекалиной — ведущего системного аналитика 1C с глубокой экспертизой в девелопменте, складском учете, архитектуре процессов и интеграциях."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #1a1514;
+      --bg-soft: #211a18;
+      --text: #f4f1eb;
+      --text-soft: rgba(244, 241, 235, 0.72);
+      --line: rgba(244, 241, 235, 0.1);
+      --line-strong: rgba(244, 241, 235, 0.18);
+      --wine: #5c1e2b;
+      --pine: #1a2b23;
+      --pine-hover: #254036;
+      --card: rgba(255, 255, 255, 0.025);
+      --shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+      --shadow-lift: 0 24px 56px rgba(0, 0, 0, 0.26);
+      --font-heading: "Cormorant Garamond", Georgia, serif;
+      --display: "Cormorant Garamond", Georgia, serif;
+      --tech: "Inter", "Manrope", "Segoe UI", sans-serif;
+      --body: "Manrope", "Segoe UI", sans-serif;
+      --transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      --content-width: 1440px;
+      --section-space: clamp(68px, 9vw, 132px);
+      --side-pad: clamp(18px, 4vw, 42px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(26, 43, 35, 0.2), transparent 34%),
+        radial-gradient(circle at 88% 14%, rgba(92, 30, 43, 0.16), transparent 32%),
+        radial-gradient(circle at 78% 52%, rgba(26, 43, 35, 0.12), transparent 30%),
+        linear-gradient(180deg, #1a1514 0%, #171212 100%);
+      color: var(--text);
+      font-family: var(--body);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      mix-blend-mode: soft-light;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 16% 12%, rgba(26, 43, 35, 0.1), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(92, 30, 43, 0.08), transparent 26%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 20%);
+      opacity: 0.42;
+      mix-blend-mode: screen;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      position: relative;
+      width: min(calc(100% - 28px), var(--content-width));
+      margin: 0 auto;
+      padding: 22px 0 28px;
+      z-index: 1;
+    }
+
+    main,
+    .footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .architecture-backdrop {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: min(45vw, 760px);
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+      mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    .architecture-backdrop__media {
+      position: absolute;
+      inset: -6% -6% -8% -10%;
+      background:
+        linear-gradient(180deg, rgba(55, 33, 30, 0.12), rgba(43, 25, 24, 0.2)),
+        url("./anna-chekalina-building-bg-v2.jpg") center center / cover no-repeat;
+      filter: sepia(0.34) saturate(0.86) brightness(0.82);
+      transform: translate3d(0, 0, 0) scale(1.05);
+      transform-origin: center top;
+      will-change: transform;
+    }
+
+    .architecture-backdrop::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(26, 21, 20, 0.62) 0%, rgba(26, 21, 20, 0.66) 58%, rgba(26, 21, 20, 0.7) 100%);
+      z-index: 1;
+    }
+
+    .architecture-backdrop::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(92, 30, 43, 0.08), rgba(26, 21, 20, 0.68)),
+        linear-gradient(180deg, rgba(55, 33, 30, 0.12), rgba(26, 21, 20, 0.28));
+      z-index: 2;
+    }
+
+    .site-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 10px 0 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .site-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      justify-content: flex-end;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 235, 0.56);
+    }
+
+    .site-nav a {
+      position: relative;
+      padding-bottom: 4px;
+      transition: var(--transition);
+    }
+
+    .site-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: rgba(92, 30, 43, 0.72);
+      transform: scaleX(0.2);
+      transform-origin: left center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .site-nav a:hover {
+      color: rgba(244, 241, 235, 0.92);
+      transform: translateX(3px);
+    }
+
+    .site-nav a:hover::after {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    .section {
+      position: relative;
+      padding: var(--section-space) 0;
+      z-index: 1;
+      overflow: clip;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 235, 0.5);
+    }
+
+    .hero .eyebrow[data-reveal] {
+      display: none;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(2.3rem, 4.4vw, 4.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+    }
+
+    .section-copy {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    .section-copy.emphasis {
+      font-size: 1.24rem;
+      line-height: 1.58;
+      color: rgba(244, 241, 235, 0.82);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(420px, 0.98fr);
+      gap: clamp(24px, 3vw, 52px);
+      min-height: min(920px, calc(100svh - 72px));
+      align-items: center;
+      padding: clamp(28px, 5vw, 58px) 0 clamp(24px, 3vw, 44px);
+      z-index: 2;
+      overflow: clip;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(30px);
+      z-index: -1;
+    }
+
+    .hero::before {
+      right: -4%;
+      top: 6%;
+      width: clamp(280px, 34vw, 520px);
+      height: clamp(360px, 42vw, 620px);
+      background: radial-gradient(circle, rgba(92, 30, 43, 0.18), transparent 68%);
+    }
+
+    .hero::after {
+      left: 8%;
+      bottom: 8%;
+      width: clamp(220px, 30vw, 460px);
+      height: clamp(220px, 26vw, 420px);
+      background: radial-gradient(circle, rgba(26, 43, 35, 0.16), transparent 72%);
+    }
+
+    .hero-copy {
+      display: grid;
+      grid-template-rows: auto auto auto auto;
+      gap: clamp(18px, 2.2vw, 30px);
+      justify-items: start;
+      justify-self: start;
+      padding-right: clamp(8px, 1.4vw, 18px);
+      padding-bottom: 0;
+      min-width: 0;
+      max-width: 620px;
+      position: relative;
+      z-index: 2;
+      justify-content: start;
+      align-self: center;
+    }
+
+    .hero-copy > * {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .hero-heading {
+      margin-bottom: 14px;
+    }
+
+    .hero-role {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 12px;
+      font-size: 0.92rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 235, 0.78);
+    }
+
+    .hero-role::before {
+      content: "";
+      width: 48px;
+      height: 1px;
+      background: rgba(244, 241, 235, 0.28);
+    }
+
+    .hero-title {
+      margin: 0 0 1.9rem;
+      max-width: 10.9ch;
+      font-family: var(--display);
+      font-size: clamp(2.9rem, 4.6vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: inherit;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .tech-text,
+    .tech-font,
+    .abbr,
+    .sans-serif {
+      font: inherit !important;
+      font-family: inherit !important;
+      font-style: inherit !important;
+      font-size: inherit !important;
+      font-weight: inherit !important;
+      color: inherit !important;
+      line-height: inherit !important;
+      white-space: nowrap !important;
+      letter-spacing: inherit !important;
+      vertical-align: baseline;
+    }
+
+    .onec-text {
+      font: inherit !important;
+      color: inherit !important;
+      letter-spacing: inherit !important;
+      white-space: nowrap !important;
+    }
+
+    .hero-lead {
+      max-width: 54ch;
+      margin: 0;
+      color: var(--text-soft);
+      font-size: clamp(1rem, 1.25vw, 1.08rem);
+      line-height: 1.68;
+      position: relative;
+      z-index: 2;
+      text-align: left;
+    }
+
+    .hero-note {
+      display: grid;
+      grid-template-columns: 130px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding-top: 18px;
+    }
+
+    .hero-note-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 235, 0.46);
+    }
+
+    .hero-note-text {
+      margin: 0;
+      max-width: 50ch;
+      color: rgba(244, 241, 235, 0.84);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    .button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border: 1px solid var(--line-strong);
+      color: var(--text);
+      background: transparent;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(92, 30, 43, 0.18);
+      transform: translateX(-102%);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .button:hover {
+      border-color: rgba(92, 30, 43, 0.42);
+      transform: translateY(-2px);
+    }
+
+    .button:hover::before {
+      transform: translateX(0);
+    }
+
+    .button.secondary:hover {
+      border-color: rgba(37, 64, 54, 0.52);
+      background: rgba(37, 64, 54, 0.12);
+      color: rgba(244, 241, 235, 0.96);
+    }
+
+    .hero-aside {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0;
+      align-self: stretch;
+      min-height: min(90vh, 980px);
+      height: min(90vh, 980px);
+      max-width: min(46vw, 780px);
+      width: min(46vw, 780px);
+      justify-self: end;
+      padding-top: 0;
+      z-index: 1;
+    }
+
+    .portrait-panel {
+      position: relative;
+      width: 100%;
+      flex: 1 1 auto;
+      aspect-ratio: 5 / 4;
+      min-height: 0;
+      height: 100%;
+      overflow: hidden;
+      background: transparent;
+      box-shadow: none;
+      isolation: isolate;
+      display: block;
+    }
+
+    .portrait-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      background:
+        linear-gradient(to right, var(--bg) 0%, rgba(26, 21, 20, 0) 18%),
+        linear-gradient(to top, var(--bg) 0%, rgba(26, 21, 20, 0) 18%);
+    }
+
+    .portrait-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      transform: scale(1) translate3d(0, 0, 0);
+      transform-origin: center center;
+      filter: none;
+      transition: transform 0.5s ease-out;
+    }
+
+    .portrait-panel:hover .portrait-image,
+    .portrait-panel:focus-within .portrait-image {
+      transform: scale(1.15);
+    }
+
+    .portrait-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      padding: 72px 0 10px;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 235, 0.52);
+      background: linear-gradient(180deg, transparent 0%, rgba(26, 21, 20, 0.58) 72%, rgba(26, 21, 20, 0.78) 100%);
+      z-index: 4;
+    }
+
+    .portrait-caption strong {
+      display: block;
+      margin-bottom: 4px;
+      color: rgba(244, 241, 235, 0.86);
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
+      text-transform: none;
+    }
+
+    .dossier {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    .hero + .section[aria-label="Ключевые профессиональные маркеры"] {
+      padding-top: clamp(18px, 2vw, 30px);
+      padding-bottom: clamp(44px, 6vw, 72px);
+    }
+
+    .dossier-item {
+      padding: 18px var(--side-pad) 18px 0;
+      transition: var(--transition);
+    }
+
+    .dossier-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 235, 0.46);
+    }
+
+    .dossier-item strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(244, 241, 235, 0.9);
+    }
+
+    .dossier-item:hover {
+      background: rgba(26, 43, 35, 0.18);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    #journey .section-head {
+      align-items: baseline;
+      grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1.18fr);
+      gap: clamp(24px, 3vw, 42px);
+    }
+
+    .journey-head-copy {
+      max-width: 600px;
+      width: 100%;
+      font-family: var(--body);
+      font-size: 1rem;
+      line-height: 1.62;
+      letter-spacing: 0.01em;
+      color: rgba(255, 255, 255, 0.72);
+      align-self: start;
+      justify-self: start;
+      margin-top: 0.3rem;
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(26px, 4vw, 54px);
+      align-items: flex-start;
+    }
+
+    .journey-lead {
+      margin: 0;
+      max-width: 24ch;
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 152px minmax(0, 1fr);
+      gap: 18px;
+      padding: 28px 24px;
+      transition: all 0.3s ease;
+      align-items: flex-start;
+      margin: 0;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .timeline-item:hover {
+      background: linear-gradient(180deg, rgba(26, 43, 35, 0.18), rgba(92, 30, 43, 0.08));
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .timeline-period {
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 235, 0.5);
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      font-weight: 700;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--text-soft);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .expert-card,
+    .course-card,
+    .note-card,
+    .skill-panel {
+      position: relative;
+      min-height: 100%;
+      padding: 34px;
+      background: var(--card);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .expert-card::before,
+    .course-card::before,
+    .note-card::before,
+    .skill-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: rgba(244, 241, 235, 0.12);
+      transition: var(--transition);
+    }
+
+    .expert-card:hover,
+    .course-card:hover,
+    .note-card:hover,
+    .skill-panel:hover {
+      transform: translateY(-6px);
+      background: linear-gradient(180deg, rgba(26, 43, 35, 0.18), rgba(92, 30, 43, 0.08));
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .expert-card:hover::before,
+    .course-card:hover::before,
+    .note-card:hover::before,
+    .skill-panel:hover::before {
+      background: rgba(92, 30, 43, 0.78);
+      width: 3px;
+    }
+
+    .expert-card h3,
+    .course-card h3,
+    .note-card h3 {
+      margin: 0 0 12px;
+      font-family: var(--display);
+      font-size: clamp(1.42rem, 1.9vw, 1.72rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+
+    .expert-card p,
+    .project-card p,
+    .course-card p,
+    .note-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+    }
+
+    .project-card h3 {
+      margin: 0 0 12px;
+      font-family: var(--display);
+      font-size: clamp(1.42rem, 1.9vw, 1.72rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+
+    .project-card p,
+    .project-list {
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .expert-list,
+    .project-list,
+    .course-list {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.6;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 18px;
+    }
+
+    .skill-panel {
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .skill-panel h3 {
+      margin: 0 0 18px;
+      font-family: var(--display);
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+    }
+
+    .skill-table {
+      display: grid;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
+      gap: 18px;
+      padding: 16px 0;
+      transition: var(--transition);
+    }
+
+    .skill-row:hover {
+      background: rgba(37, 64, 54, 0.16);
+    }
+
+    .skill-row dt {
+      margin: 0;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 235, 0.5);
+    }
+
+    .skill-row dd {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+    }
+
+    #projects.section {
+      display: block;
+      overflow: visible;
+    }
+
+    #projects .section-head {
+      position: relative;
+      top: auto;
+      display: grid;
+      margin-bottom: clamp(24px, 3vw, 40px);
+      align-self: auto;
+    }
+
+    #projects .section-title {
+      max-width: 10.2ch;
+    }
+
+    #projects .section-copy {
+      max-width: 34ch;
+      margin-top: 16px;
+    }
+
+    .projects-pin-shell {
+      position: relative;
+      width: 100%;
+      min-height: 0;
+      display: block;
+    }
+
+    .projects-stage {
+      position: relative;
+      width: 100%;
+      display: block;
+      overflow: visible;
+      height: auto;
+      padding-right: 0;
+      min-height: 0;
+    }
+
+    .project-grid {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+      height: 65vh;
+      min-height: 520px;
+      align-items: stretch;
+    }
+
+    .project-card {
+      --hover-tone: linear-gradient(180deg, rgba(92, 30, 43, 0.24), rgba(92, 30, 43, 0.08));
+      position: relative;
+      flex: 1 1 0;
+      min-width: 0;
+      min-height: 100%;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.025);
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid rgba(244, 241, 235, 0.08);
+      border-radius: 16px;
+      margin: 0;
+      cursor: pointer;
+      transition:
+        flex 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: rgba(244, 241, 235, 0.12);
+      transition: var(--transition);
+      z-index: 3;
+    }
+
+    .project-card__wash {
+      position: absolute;
+      inset: 0;
+      background: var(--hover-tone);
+      transform: scaleY(0);
+      transform-origin: bottom center;
+      opacity: 0.95;
+      z-index: 1;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .project-card > :not(.project-card__wash):not(.card-vertical-title):not(.card-hover-content) {
+      position: relative;
+      z-index: 3;
+    }
+
+    .project-card.featured {
+      background: linear-gradient(180deg, rgba(26, 43, 35, 0.18), rgba(26, 43, 35, 0.08));
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      flex: 5 1 0;
+      border-color: rgba(244, 241, 235, 0.18);
+    }
+
+    .project-card:hover::before,
+    .project-card:focus-within::before {
+      background: rgba(244, 241, 235, 0.36);
+      width: 2px;
+    }
+
+    .project-badge,
+    .course-badge {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 16px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      font-family: sans-serif !important;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(244, 241, 235, 0.58);
+      transition: var(--transition);
+    }
+
+    .course-badge,
+    .course-badge.onec-text,
+    .course-badge .tech-text,
+    .course-badge .onec-text {
+      font-family: "Inter", "Manrope", sans-serif !important;
+      font-style: normal !important;
+      font-weight: 700 !important;
+      font-size: 0.8rem !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      line-height: 1 !important;
+      color: rgba(244, 241, 235, 0.58) !important;
+      white-space: nowrap !important;
+    }
+
+    .project-card:hover .project-badge,
+    .project-card:focus-within .project-badge,
+    .course-card:hover .course-badge {
+      border-color: rgba(92, 30, 43, 0.62);
+      color: rgba(244, 241, 235, 0.9);
+      background: rgba(92, 30, 43, 0.16);
+    }
+
+    .project-card[data-tone="pine"] {
+      --hover-tone: linear-gradient(180deg, rgba(26, 43, 35, 0.28), rgba(26, 43, 35, 0.1));
+    }
+
+    .project-card[data-tone="pine"]:hover .project-badge,
+    .project-card[data-tone="pine"]:focus-within .project-badge {
+      border-color: rgba(37, 64, 54, 0.72);
+      background: rgba(37, 64, 54, 0.2);
+    }
+
+    .card-vertical-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      padding: 1.5rem;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: center;
+      font-family: var(--font-serif, "Playfair Display", serif) !important;
+      font-weight: 700 !important;
+      font-size: 2.2rem !important;
+      letter-spacing: 0.02em !important;
+      line-height: 1.1 !important;
+      max-width: 100%;
+      white-space: normal;
+      color: #ffffff !important;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .card-hover-content {
+      position: absolute !important;
+      inset: 0;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(0);
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 20 !important;
+      color: #ffffff !important;
+    }
+
+    .card-hover-content h3 {
+      margin: 0 0 1rem;
+      max-width: 100%;
+      font-size: 2rem;
+      line-height: 1.08;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-hover-content p,
+    .card-hover-content .project-list,
+    .card-hover-content .project-badge {
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+
+    .card-hover-content p,
+    .card-hover-content li {
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    .card-hover-content li {
+      margin-bottom: 0.75rem;
+    }
+
+    .card-hover-content li:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-card:hover .card-vertical-title,
+    .project-card:focus-within .card-vertical-title {
+      opacity: 0 !important;
+    }
+
+    .project-card:hover .card-hover-content,
+    .project-card:focus-within .card-hover-content {
+      opacity: 1 !important;
+      visibility: visible !important;
+      z-index: 100 !important;
+      transform: translateY(0);
+      pointer-events: auto;
+      transition-delay: 0.15s;
+      color: #fff !important;
+    }
+
+    .project-card:hover .card-hover-content h3,
+    .project-card:focus-within .card-hover-content h3 {
+      white-space: normal;
+    }
+
+    .project-card:hover .card-hover-content p,
+    .project-card:hover .card-hover-content .project-list,
+    .project-card:hover .card-hover-content .project-badge,
+    .project-card:focus-within .card-hover-content p,
+    .project-card:focus-within .card-hover-content .project-list,
+    .project-card:focus-within .card-hover-content .project-badge {
+      transform: translateY(0);
+      visibility: visible !important;
+      pointer-events: auto;
+      transition-delay: 0.2s;
+      opacity: 1 !important;
+    }
+
+    .presentation-section {
+      padding: 6rem 2rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .presentation-text {
+      margin-bottom: 3rem;
+      max-width: 800px;
+    }
+
+    .presentation-text h2 {
+      font-family: var(--font-serif, "Playfair Display", serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+    }
+
+    .presentation-text p {
+      font-family: sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .bento-gallery {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      height: 600px;
+    }
+
+    .bento-item {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    .bento-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(45%) grayscale(60%) contrast(1.1) brightness(0.85);
+      transition: all 0.5s ease;
+    }
+
+    .bento-item:hover img {
+      filter: sepia(0%) grayscale(0%) contrast(1) brightness(1);
+      transform: scale(1.03);
+    }
+
+    .large-item {
+      grid-row: span 2;
+    }
+
+    .small-item {
+      height: calc(300px - 10px);
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .course-card--compact h3 {
+      font-size: clamp(1.3rem, 1.7vw, 1.55rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-family: var(--display);
+      font-weight: 600;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .notes-grid.notes-grid--triple {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    #innovation .notes-grid.notes-grid--triple .note-card {
+      position: relative;
+      isolation: isolate;
+    }
+
+    #innovation .notes-grid.notes-grid--triple .note-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(92, 30, 43, 0.24), rgba(92, 30, 43, 0.08));
+      transform: scaleY(0);
+      transform-origin: bottom center;
+      opacity: 0.95;
+      pointer-events: none;
+      z-index: 1;
+      will-change: transform;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #innovation .notes-grid.notes-grid--triple .note-card.pine::after {
+      background: linear-gradient(180deg, rgba(26, 43, 35, 0.28), rgba(26, 43, 35, 0.1));
+    }
+
+    #innovation .notes-grid.notes-grid--triple .note-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .ai-intro {
+      margin-bottom: 16px;
+      padding: clamp(24px, 3vw, 34px);
+      background: rgba(26, 43, 35, 0.08);
+    }
+
+    #education .section-head {
+      grid-template-columns: minmax(300px, 0.74fr) minmax(450px, 1.26fr);
+      align-items: start;
+    }
+
+    #education .section-head .section-copy {
+      font-size: 0;
+      line-height: 0;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    #education .section-head .section-copy::before {
+      content: "Я непрерывно развиваю свой технический и методологический фундамент.";
+      display: block;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+      max-width: 450px;
+    }
+
+    .ai-intro h3 {
+      margin-bottom: 18px;
+    }
+
+    .ai-intro p + p {
+      margin-top: 18px;
+    }
+
+    .note-card {
+      transition: all 0.3s ease;
+    }
+
+    .note-card:hover {
+      transform: translateY(-6px);
+      background: linear-gradient(180deg, rgba(26, 43, 35, 0.2), rgba(92, 30, 43, 0.08));
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+    }
+
+    #innovation .notes-grid.notes-grid--triple .note-card:hover {
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    #innovation .notes-grid.notes-grid--triple .note-card:hover::after {
+      transform: scaleY(1);
+    }
+
+    .note-card:hover::before {
+      background: rgba(92, 30, 43, 0.78);
+      width: 3px;
+    }
+
+    #contact.section {
+      min-height: auto;
+      display: grid;
+      align-items: center;
+    }
+
+    .contact-stage {
+      display: grid;
+      place-items: center;
+      gap: 22px;
+      padding: clamp(52px, 9vw, 120px) 0;
+      text-align: center;
+    }
+
+    .contact-word {
+      margin: 0;
+      max-width: 14ch;
+      font-family: var(--display);
+      font-size: clamp(2.5rem, 4.4vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      color: rgba(244, 241, 235, 0.9);
+    }
+
+    .contact-handle {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+      font-family: var(--tech);
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: none;
+      color: rgba(244, 241, 235, 0.92);
+      padding: 16px 32px;
+      border: 1px solid rgba(244, 241, 235, 0.92);
+      border-radius: 50px;
+      background: transparent;
+      transition: all 0.3s ease;
+      transform: translate3d(var(--mag-x, 0px), var(--mag-y, 0px), 0);
+      will-change: transform;
+    }
+
+    .contact-handle::after {
+      content: "→";
+      display: inline-block;
+      opacity: 1;
+      transform: translateX(0);
+      transition: var(--transition);
+    }
+
+    .contact-handle:hover {
+      color: #111;
+      border-color: rgba(244, 241, 235, 1);
+      background: rgba(244, 241, 235, 1);
+      transform: translate3d(calc(var(--mag-x, 0px) + 2px), var(--mag-y, 0px), 0);
+    }
+
+    .contact-handle:hover::after {
+      transform: translateX(5px);
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 0 0;
+      color: rgba(244, 241, 235, 0.48);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    [data-reveal] {
+      will-change: transform, opacity;
+    }
+
+    @media (max-width: 1240px) {
+      .architecture-backdrop {
+        width: clamp(280px, 36vw, 460px);
+      }
+
+      .hero,
+      .journey,
+      .skill-grid,
+      .section-head,
+      #projects.section {
+        grid-template-columns: 1fr;
+      }
+
+      .courses-grid,
+      .notes-grid.notes-grid--triple {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-copy,
+      .hero-aside {
+        max-width: none;
+      }
+
+      .hero-aside {
+        justify-self: stretch;
+      }
+
+      #projects .section-head {
+        position: relative;
+        top: auto;
+        margin-bottom: 34px;
+      }
+
+      .portrait-panel {
+        min-height: 0;
+      }
+
+    }
+
+    @media (max-width: 920px) {
+      .architecture-backdrop {
+        width: 100%;
+        opacity: 0.34;
+      }
+
+      .site-top,
+      .footer,
+      .hero-note,
+      .dossier,
+      .notes-grid,
+      .grid-2,
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .presentation-section {
+        padding: 5rem 1rem;
+      }
+
+      .bento-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        height: auto;
+      }
+
+      .large-item {
+        grid-row: auto;
+        height: 400px;
+      }
+
+      .small-item {
+        height: 300px;
+      }
+
+      .site-top,
+      .footer {
+        display: grid;
+      }
+
+      .site-nav {
+        justify-content: flex-start;
+      }
+
+      .timeline-item,
+      .skill-row {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-stage {
+        overflow: visible;
+        padding-right: 0;
+        min-height: auto;
+        height: auto;
+      }
+
+      .projects-pin-shell {
+        min-height: auto;
+        display: block;
+      }
+
+      .project-grid {
+        display: grid;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        transform: none !important;
+      }
+
+      .project-card {
+        width: 100%;
+        flex-basis: auto;
+      }
+
+      .card-vertical-title {
+        display: none;
+      }
+
+      .card-hover-content {
+        position: relative;
+        inset: auto;
+        height: auto;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        z-index: auto;
+        pointer-events: auto;
+      }
+
+      .card-hover-content h3 {
+        position: relative;
+        margin: 0 0 12px;
+        max-width: 12ch;
+        width: 100%;
+        white-space: normal;
+        transform: none;
+      }
+
+      .card-hover-content .project-badge,
+      .card-hover-content p,
+      .card-hover-content .project-list {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+
+      .hero-title,
+      .journey-lead,
+      .contact-word {
+        max-width: none;
+      }
+
+      .portrait-image {
+        transform: scale(1.04);
+      }
+
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(calc(100% - 20px), var(--content-width));
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-note {
+        gap: 8px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .portrait-image {
+        transform: scale(1.02);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="architecture-backdrop" aria-hidden="true">
+    <div class="architecture-backdrop__media"></div>
+  </div>
+
+  <div class="page">
+    <header class="site-top" data-reveal>
+      <div class="site-name">Анна Чекалина / Ведущий системный аналитик&nbsp;<span class="tech-text">1C</span></div>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a href="#journey">Обо мне</a>
+        <a href="#expertise">Экспертиза</a>
+        <a href="#projects">Проекты</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div>
+            <p class="eyebrow" data-reveal data-delay="1">Персональный сайт / профессиональное портфолио</p>
+            <div class="hero-role" data-reveal data-delay="1">Ведущий системный аналитик&nbsp;<span class="tech-text">1C</span></div>
+          </div>
+
+          <div class="hero-heading">
+            <h1 class="hero-title" data-reveal data-delay="1">
+              Перевожу сложные процессы девелопмента в прозрачную архитектуру&nbsp;<em class="tech-text">1С</em>
+            </h1>
+            <p class="hero-lead" data-reveal data-delay="2">
+              Я знаю девелопмент не с презентаций, а изнутри: от сметного и договорного контура
+              до глубокого складского и товарного учета. От проектирования сложных процессов и
+              интеграций до внедрения решений, которые реально выдерживают живую эксплуатацию.
+            </p>
+          </div>
+
+          <div class="hero-note" data-reveal data-delay="2">
+            <div class="hero-note-label">Кто я в работе</div>
+            <p class="hero-note-text">
+              Сильная сторона моей аналитики не только в логике. Я умею переводить язык бизнеса
+              на язык разработчиков, держать высокую когнитивную нагрузку и выстраивать процессы так, чтобы система помогала людям, а не ломала их.
+            </p>
+          </div>
+
+          <div>
+            <div class="hero-actions" data-reveal data-delay="3">
+              <a class="button" href="#projects">Смотреть кейсы</a>
+              <a class="button secondary" href="https://t.me/Pintogrenade" target="_blank" rel="noreferrer">Написать в Telegram</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-aside" data-reveal data-delay="2">
+          <div class="portrait-panel">
+            <img class="portrait-image" src="./hero-photo-cropped.jpg" alt="Анна Чекалина" loading="eager" />
+          </div>
+
+          <div class="portrait-caption">
+            <div>
+              <strong>Анна Чекалина</strong>
+              Ведущий системный аналитик&nbsp;<span class="tech-text">1C</span> с глубокой отраслевой экспертизой в девелопменте
+            </div>
+            <div>Санкт-Петербург</div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" aria-label="Ключевые профессиональные маркеры">
+        <div class="dossier">
+          <div class="dossier-item" data-reveal>
+            <span class="dossier-label">Отрасль</span>
+            <strong>Девелопмент, строительное производство, склад и закупки, внеоборотные активы</strong>
+          </div>
+          <div class="dossier-item" data-reveal data-delay="1">
+            <span class="dossier-label">Экспертиза</span>
+            <strong>Архитектура&nbsp;<span class="tech-text">1C</span>, интеграции, внедрение, обучение</strong>
+          </div>
+          <div class="dossier-item" data-reveal data-delay="2">
+            <span class="dossier-label">Контакт</span>
+            <strong><a href="https://t.me/Pintogrenade" target="_blank" rel="noreferrer">@Pintogrenade</a></strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="journey">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-reveal>Мой путь</p>
+            <h2 class="section-title" data-reveal data-delay="1">От сметного и складского контура к ведущей аналитике&nbsp;<span class="tech-text">1C</span></h2>
+          </div>
+          <p class="section-copy journey-head-copy" data-reveal data-delay="2">
+            Моя сила в том, что я пришла в системную аналитику не с абстрактной стороны. Я прошла
+            путь через стройку, договоры, склад, документы, первичку, сметы, внедрение и обучение
+            пользователей. Поэтому я понимаю не только систему, но и реальность, в которой она живет.
+          </p>
+        </div>
+
+        <div class="journey">
+          <div>
+            <p class="journey-lead" data-reveal>
+              Я знаю, как выглядит бизнес-процесс на бумаге, в системе и в руках конкретного человека.
+            </p>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item" data-reveal>
+              <div class="timeline-period">2025 — сейчас</div>
+              <div>
+                <h3>Sminex / ведущий системный аналитик&nbsp;<span class="tech-text">1C</span></h3>
+                <p>Склад, закупки, производство, внеоборотные активы, интеграции, функциональный дизайн, карта процессов и запуск решений в реальную эксплуатацию.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item" data-reveal data-delay="1">
+              <div class="timeline-period">2024 — 2025</div>
+              <div>
+                <h3>ФСК / ведущий системный аналитик&nbsp;<span class="tech-text">1C</span></h3>
+                <p>Закупочные сервисы, аккредитация контрагентов, автоматизация тендерных и нетендерных закупок (АНЦТ, СЗ), сквозной бюджетный контроль по статьям и выстраивание прослеживаемости в корпоративном контуре.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item" data-reveal data-delay="2">
+              <div class="timeline-period">2021 — 2024</div>
+              <div>
+                <h3>Bonava, Северо-Западная Строительная Компания, KITE</h3>
+                <p>Складской учет, цифровизация, описание бизнес-процессов, внедрение <span class="tech-text">1C</span>-решений для строительного бизнеса и переход от операционного знания к системной архитектуре.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item" data-reveal data-delay="3">
+              <div class="timeline-period">2016 — 2021</div>
+              <div>
+                <h3>Сметный и договорной контур</h3>
+                <p>Сметы, КС-2, КС-3, договоры, материалы, аналитика затрат и практика, которая дала мне настоящую глубину понимания стройки изнутри.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="expertise">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-reveal>Hard skills & экспертиза&nbsp;<span class="tech-text">1C</span></p>
+            <h2 class="section-title" data-reveal data-delay="1">Сильная аналитика там, где цена ошибки высока</h2>
+          </div>
+          <p class="section-copy emphasis" data-reveal data-delay="2">
+            Я не пишу документацию ради документации. Моя работа — собрать сложную предметную область,
+            спроектировать логику, выстроить взаимодействие систем и людей и довести решение до состояния,
+            в котором оно работает стабильно и понятно.
+          </p>
+        </div>
+
+        <div class="skill-grid">
+          <div class="skill-panel" data-reveal>
+            <h3>Ключевая зона силы</h3>
+            <dl class="skill-table">
+              <div class="skill-row">
+                <dt>Архитектура&nbsp;<span class="tech-text">1C</span></dt>
+                <dd>Проектирование функциональных контуров, объектных моделей, схем процессов и логики взаимодействия между подсистемами.</dd>
+              </div>
+              <div class="skill-row">
+                <dt>Бизнес-анализ</dt>
+                <dd>Интервьюирование, сбор и формализация требований, as is / to be, разбор конфликтующих интересов бизнеса и ИТ.</dd>
+              </div>
+              <div class="skill-row">
+                <dt>Интеграции</dt>
+                <dd>Маппинг данных, точки интеграционного взаимодействия, закупочные сервисы, внешние корпоративные контуры, мессенджеры.</dd>
+              </div>
+              <div class="skill-row">
+                <dt>Функциональный дизайн</dt>
+                <dd>Технические задания, сценарии использования, тест-кейсы, постановка задач разработчикам и приемка результата.</dd>
+              </div>
+              <div class="skill-row">
+                <dt>Запуск и обучение</dt>
+                <dd>Демонстрация функционала, обучение пользователей, сопровождение внедрения и спокойная доводка системы до рабочего состояния.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="grid-2">
+            <article class="expert-card" data-reveal data-delay="1">
+              <h3>Конфигурации</h3>
+              <p>Корпоративные конфигурации и платформенные контуры, в которых я проектирую учетную логику, интеграции и устойчивую эксплуатацию процессов.</p>
+              <ul class="expert-list">
+                <li><span class="tech-text">1C:ERP</span> УСО</li>
+                <li><span class="tech-text">1C:Бит.Финанс</span></li>
+                <li><span class="tech-text">1C:Предприятие 8.3</span></li>
+                <li><span class="tech-text">1C:УНСФ</span></li>
+              </ul>
+            </article>
+
+            <article class="expert-card" data-reveal data-delay="2">
+              <h3>Soft skills</h3>
+              <p>Эмпатия, точная коммуникация, умение переводить сложное на человеческий язык и удерживать конструктив там, где проекту легко сорваться в напряжение.</p>
+              <ul class="expert-list">
+                <li>коммуникация на всех уровнях: от кладовщиков до топ-менеджмента</li>
+                <li>высокий уровень эмпатии и навык управления конфликтами в напряженных проектах</li>
+                <li>умение удерживать конструктив и переводить сложное на человеческий язык</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-reveal>Главные кейсы / масштаб проектов</p>
+            <h2 class="section-title" data-reveal data-delay="1">Проекты, в которых аналитика держит конструкцию</h2>
+          </div>
+          <p class="section-copy" data-reveal data-delay="2">
+            Ниже — не список обязанностей, а реальные узлы сложности: запуск складского учета, обучение большого числа пользователей,
+            параллельные контуры ТМЦ, интеграции, бюджетный контроль и процессы, где надо одновременно держать бизнес, ИТ и эксплуатацию.
+          </p>
+        </div>
+
+        <div class="projects-pin-shell">
+          <div class="projects-stage">
+            <div class="project-grid">
+              <article class="project-card featured" data-tone="pine" data-reveal>
+                <div class="project-card__wash" aria-hidden="true"></div>
+                <div class="card-vertical-title">Полный запуск складского учета<br />и новой логики ТМЦ</div>
+                <div class="card-hover-content">
+                  <span class="project-badge">Комплексное внедрение / девелопмент</span>
+                  <h3>Запуск складского учета и строительного производства</h3>
+                  <div class="project-card__details">
+                    <p>Автоматизация складского и производственного контуров для ряда крупных девелоперов: от проектирования логики ТМЦ до внедрения процессов, устойчивых в живой эксплуатации.</p>
+                    <ul class="project-list">
+                      <li>планирование потребности в материалах и формирование закупок на основе смет и графиков производства работ</li>
+                      <li>автоматизация нескольких видов строительных производств, включая выпуск по технологическим картам (в том числе специфичные процессы и изготовление напитков для менеджеров по гостеприимству)</li>
+                      <li>масштабное обучение пользователей разного профиля: от кладовщиков и экономистов до менеджеров по гостеприимству и смежных подразделений</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card" data-tone="wine" data-reveal data-delay="1">
+                <div class="project-card__wash" aria-hidden="true"></div>
+                <div class="card-vertical-title">Учет оборачиваемых материалов<br />и чат-бот</div>
+                <div class="card-hover-content">
+                  <span class="project-badge">SMINEX / УЧЕТ МАТЕРИАЛОВ И ИНТЕГРАЦИИ</span>
+                  <h3>Учет оборачиваемых материалов и мобильный клиент</h3>
+                  <div class="project-card__details">
+                    <p>Разработка и внедрение логики учета высвобождаемых материалов (бытовок, дорожных плит, лесов) и автоматизация физических складских операций.</p>
+                    <ul class="project-list">
+                      <li>внедрение параллельного учетного контура с отслеживанием дат высвобождения для снижения издержек на повторные закупки</li>
+                      <li>проектирование и внедрение внешнего мобильного клиента со сканированием для инвентаризации и выдачи ТМЦ</li>
+                      <li>разработка архитектуры и запуск чат-бота в корпоративный мессенджер как замену бумажным журналам с функцией юридически значимой подписи</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card" data-tone="pine" data-reveal data-delay="2">
+                <div class="project-card__wash" aria-hidden="true"></div>
+                <div class="card-vertical-title">Интеграция B2B-закупок,<br />аккредитации и контроля</div>
+                <div class="card-hover-content">
+                  <span class="project-badge">ФСК / закупки и финансы</span>
+                  <h3>Тендерные закупки, B2B-интеграции и бюджетный контроль</h3>
+                  <div class="project-card__details">
+                    <p>Развитие контура тендерных и нетендерных закупок (АНЦТ, служебные записки), а также выстраивание прозрачной логики согласований и контроля бюджета в 1С.</p>
+                    <ul class="project-list">
+                      <li>автоматизация процедур проведения тендеров и обоснования нетендерных закупок внутри системы</li>
+                      <li>интеграция 1С с электронной торговой площадкой (B2B-закупки) и сервисом аккредитации контрагентов</li>
+                      <li>разработка алгоритма блокировки и контроля выхода закупки за рамки бюджета по статье</li>
+                      <li>создание отчета и графа связанности документов для сквозного анализа затрат: от сметных работ и их обеспечения (закупки, поступления) до итогового исполнения бюджета</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card" data-tone="wine" data-reveal data-delay="3">
+                <div class="project-card__wash" aria-hidden="true"></div>
+                <div class="card-vertical-title">Сметный учет,<br />развитие IT-продуктов и планирование стройки</div>
+                <div class="card-hover-content">
+                  <span class="project-badge">Титан-2 / атомное строительство</span>
+                  <h3>Сметный учет, развитие IT-продуктов и планирование стройки</h3>
+                  <div class="project-card__details">
+                    <p>Сопровождение сметно-договорного контура крупного инфраструктурного проекта. Бизнес- и системный анализ для веб-разработки внутреннего продукта «Темплан».</p>
+                    <ul class="project-list">
+                      <li>администрирование и развитие системы «Темплан»: сбор требований, постановка задач разработчикам</li>
+                      <li>поддержание и ведение сложного контура сметного учета на международном объекте строительства</li>
+                      <li>обучение и практический опыт функционального планирования в системе Plan-R, включая работу с BIM-моделями</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="presentation-section">
+        <div class="presentation-container">
+          <div class="presentation-text">
+            <h2>Запуск и презентация IT-продуктов</h2>
+            <p>Проектирую сложные интеграции и перевожу их на язык бизнеса. Успешный опыт презентации масштабных IT-продуктов, разработанных с нуля (включая контур складского учета Sminex), перед стейкхолдерами и IT-департаментом. Выравниваю ожидания между разработкой и бизнесом, обосновываю архитектуру и делаю системы прозрачными для пользователей.</p>
+          </div>
+
+          <div class="bento-gallery">
+            <div class="bento-item large-item">
+              <img src="./img/presentation-6.jpg" alt="Презентация IT-продукта на сцене, общий план" />
+            </div>
+            <div class="bento-item small-item">
+              <img src="./img/presentation-1.png" alt="Спикер, контакт с аудиторией, улыбка" />
+            </div>
+            <div class="bento-item small-item">
+              <img src="./img/presentation-7.jpg" alt="Экспертное объяснение архитектуры, жест" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-reveal>Развитие и повышение квалификации</p>
+            <h2 class="section-title" data-reveal data-delay="1">Фундамент, стройка и экспертиза&nbsp;<span class="tech-text">1C</span></h2>
+          </div>
+          <p class="section-copy" data-reveal data-delay="2">
+            Я последовательно усиливаю три слоя своей базы: методологию и финансово-сметную дисциплину,
+            управление строительными процессами и профессиональную экспертизу в экосистеме <span class="tech-text">1C</span>.
+          </p>
+        </div>
+
+        <div class="courses-grid">
+          <article class="course-card" data-reveal>
+            <span class="course-badge">Фундамент и методология</span>
+            <h3>Сметное дело, бухгалтерский учет и аналитическая база</h3>
+            <p>Дипломы и курсы по сметному делу, бухгалтерскому учету, финансовой аналитике и системному анализу. Это тот фундамент, который позволяет мне видеть за системой реальные деньги, материалы и бизнес-логику.</p>
+          </article>
+
+          <article class="course-card" data-reveal data-delay="1">
+            <span class="course-badge">Управление стройкой</span>
+            <h3>Планирование строительных проектов и контур управления</h3>
+            <p>Обучение по Plan-R, управление строительными проектами и практическое понимание тематического планирования. Это усиливает мою системную оптику именно в девелопменте и стройке.</p>
+          </article>
+
+          <article class="course-card course-card--compact" data-reveal data-delay="2">
+            <span class="course-badge">Экспертиза 1С</span>
+            <h3>Сертификат «<span class="tech-text">1C:Профессионал</span>» и системное усиление платформы</h3>
+            <p>Подтвержденная квалификация по платформе <span class="tech-text">1C</span> и множественные курсы повышения квалификации по архитектуре и подсистемам <span class="tech-text">1C</span>.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="innovation">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-reveal>Искусственный интеллект</p>
+            <h2 class="section-title" data-reveal data-delay="1">Использование ИИ в системном анализе&nbsp;<span class="tech-text">1C</span></h2>
+          </div>
+          <p class="section-copy" data-reveal data-delay="2">
+            Моя практика системного аналитика <span class="tech-text">1C</span> интегрирует искусственный интеллект не как замену, а как рабочий экзоскелет. Он расширяет мои аналитические и проектные мощности, помогает глубже заходить в сложные архитектурные задачи и сокращает время на рутинные этапы без потери качества.
+          </p>
+        </div>
+
+        <article class="note-card ai-intro" data-reveal>
+          <h3>ИИ как экзоскелет аналитика</h3>
+          <p>
+            Подход, который я развиваю, строится на синтезе глубокой архитектурной экспертизы в <span class="tech-text">1C</span> и современных методов оркестрации ИИ. Это позволяет мне точнее проектировать сложные системные ландшафты, глубже разбирать бизнес-процессы и выдавать решения с большей детализацией и дальновидностью.
+          </p>
+          <p>
+            Для меня ИИ — это не декоративная модность и не попытка подменить профессию. Это рабочая среда, в которой можно быстрее проверять гипотезы, усиливать ясность проектирования и высвобождать время для тех частей системного анализа, где особенно важны контекст, ответственность и человеческое понимание предметной области.
+          </p>
+        </article>
+
+        <div class="notes-grid notes-grid--triple">
+          <article class="note-card pine" data-reveal>
+            <h3>Vibecoding и прототипирование</h3>
+            <p>
+              Быстро создаю концептуальные модели и прототипы решений, чтобы оперативно проверять гипотезы, визуализировать изменения и добиваться точного попадания в требования. ИИ помогает собирать стартовые структуры, адаптировать подходы и находить рабочие варианты реализации в контуре <span class="tech-text">1C</span>.
+            </p>
+          </article>
+
+          <article class="note-card" data-reveal data-delay="1">
+            <h3>Оркестрация ИИ (MoE)</h3>
+            <p>
+              Использую разные модели как систему экспертов по экспертам: каждая закрывает свой слой анализа, а затем я интегрирую выводы в единый результат. Такой подход даёт большую точность, глубину и позволяет удерживать нюансы, которые легко потерять при линейной работе.
+            </p>
+          </article>
+
+          <article class="note-card" data-reveal data-delay="2">
+            <h3>Автоматизация рутинных операций</h3>
+            <p>
+              Применяю ИИ для парсинга и предварительного анализа данных, проверки соответствия корпоративным стандартам и реверс-инжиниринга. Это снимает с аналитика повторяющуюся нагрузку и высвобождает ресурс на сложную архитектуру, системное проектирование и принятие сильных решений.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="contact-stage" data-reveal>
+          <h2 class="contact-word">Открыта к сложным архитектурным задачам</h2>
+          <a class="contact-handle magnetic" href="https://t.me/Pintogrenade" target="_blank" rel="noreferrer">Написать в Telegram @Pintogrenade</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Анна Чекалина / Ведущий системный аналитик&nbsp;<span class="tech-text">1C</span></span>
+      <span id="year"></span>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script>
+    const currentYear = document.getElementById("year");
+    const architectureMedia = document.querySelector(".architecture-backdrop__media");
+    const magneticNodes = document.querySelectorAll(".magnetic");
+    const projectCards = document.querySelectorAll(".project-card");
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    document.querySelectorAll("span").forEach((node) => {
+      if (/1(?:C|\u0421)/.test(node.textContent || "")) {
+        node.classList.add("onec-text");
+      }
+    });
+
+    if (currentYear) {
+      currentYear.textContent = `© ${new Date().getFullYear()} / Telegram: @Pintogrenade`;
+    }
+
+    projectCards.forEach((card) => {
+      if (card.querySelector(".project-card__wash")) {
+        return;
+      }
+
+      const tone = card.dataset.tone === "pine"
+        ? "linear-gradient(180deg, rgba(26, 43, 35, 0.28), rgba(26, 43, 35, 0.1))"
+        : "linear-gradient(180deg, rgba(92, 30, 43, 0.24), rgba(92, 30, 43, 0.08))";
+
+      card.style.setProperty("--hover-tone", tone);
+
+      const wash = document.createElement("div");
+      wash.className = "project-card__wash";
+      card.prepend(wash);
+    });
+
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.defaults({
+        invalidateOnRefresh: true
+      });
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const defaultEase = "power3.out";
+
+      if (!reduceMotion) {
+        gsap.from(".site-top", {
+          y: 28,
+          autoAlpha: 0,
+          duration: 1,
+          ease: defaultEase
+        });
+
+        gsap.from(".dossier-item", {
+          scrollTrigger: {
+            trigger: ".dossier",
+            start: "top 86%"
+          },
+          y: 36,
+          autoAlpha: 0,
+          duration: 0.9,
+          ease: defaultEase,
+          stagger: 0.12
+        });
+
+        gsap.utils.toArray(".section-head, .skill-panel, .expert-card, .course-card, .ai-intro, .contact-stage").forEach((node) => {
+          gsap.from(node, {
+            scrollTrigger: {
+              trigger: node,
+              start: "top 86%"
+            },
+            y: 44,
+            autoAlpha: 0,
+            duration: 1,
+            ease: defaultEase
+          });
+        });
+
+        ScrollTrigger.batch(".timeline-item", {
+          start: "top 86%",
+          onEnter: (batch) =>
+            gsap.fromTo(
+              batch,
+              { y: 52, autoAlpha: 0 },
+              { y: 0, autoAlpha: 1, duration: 1, ease: defaultEase, stagger: 0.12, overwrite: true }
+            )
+        });
+
+        if (projectCards.length) {
+          gsap.fromTo(
+            projectCards,
+            { y: 48, autoAlpha: 0 },
+            {
+              y: 0,
+              autoAlpha: 1,
+              duration: 1.05,
+              ease: defaultEase,
+              stagger: 0.12,
+              overwrite: true,
+              scrollTrigger: {
+                trigger: "#projects",
+                start: "top 82%"
+              }
+            }
+          );
+        }
+
+        ScrollTrigger.batch(".note-card", {
+          start: "top 86%",
+          onEnter: (batch) =>
+            gsap.fromTo(
+              batch,
+              { y: 48, autoAlpha: 0 },
+              { y: 0, autoAlpha: 1, duration: 0.95, ease: defaultEase, stagger: 0.12, overwrite: true }
+            )
+        });
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.6
+          }
+        })
+          .to(".hero-copy", { yPercent: -10, autoAlpha: 0.22, ease: "none" }, 0)
+          .to(".hero-aside", { yPercent: 8, ease: "none" }, 0);
+
+        if (architectureMedia) {
+          gsap.to(architectureMedia, {
+            yPercent: -12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: document.body,
+              start: "top top",
+              end: "bottom bottom",
+              scrub: 0.8
+            }
+          });
+        }
+
+      }
+
+      ScrollTrigger.refresh();
+    }
+
+    if (canHover) {
+      magneticNodes.forEach((node) => {
+        node.addEventListener("mousemove", (event) => {
+          const rect = node.getBoundingClientRect();
+          const x = event.clientX - rect.left - rect.width / 2;
+          const y = event.clientY - rect.top - rect.height / 2;
+          const offsetX = Math.max(-10, Math.min(10, x * 0.12));
+          const offsetY = Math.max(-8, Math.min(8, y * 0.12));
+
+          node.style.setProperty("--mag-x", `${offsetX}px`);
+          node.style.setProperty("--mag-y", `${offsetY}px`);
+        });
+
+        node.addEventListener("mouseleave", () => {
+          node.style.setProperty("--mag-x", "0px");
+          node.style.setProperty("--mag-y", "0px");
+        });
+      });
+
+      if (window.gsap) {
+        projectCards.forEach((card) => {
+          const wash = card.querySelector(".project-card__wash");
+
+          if (!wash) {
+            return;
+          }
+
+          const hoverTween = gsap.timeline({ paused: true })
+            .to(card, {
+              y: -8,
+              scale: 1.01,
+              boxShadow: "0 28px 60px rgba(0, 0, 0, 0.28)",
+              borderColor: "rgba(244, 241, 235, 0.18)",
+              duration: 0.6,
+              ease: "power3.out"
+            }, 0)
+            .to(wash, {
+              scaleY: 1,
+              duration: 0.6,
+              ease: "power3.out"
+            }, 0);
+
+          card.addEventListener("mouseenter", () => hoverTween.play());
+          card.addEventListener("mouseleave", () => hoverTween.reverse());
+        });
+      }
+    }
+  </script>
+</body>
+</html>
