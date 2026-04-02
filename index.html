@@ -1532,6 +1532,339 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .page {
+        width: min(calc(100% - 24px), var(--content-width));
+      }
+
+      .section {
+        padding: 56px 0 !important;
+      }
+
+      .architecture-backdrop {
+        width: 100% !important;
+        opacity: 0.3 !important;
+      }
+
+      .site-top,
+      .footer,
+      .dossier,
+      .grid-2,
+      .courses-grid,
+      .notes-grid,
+      .notes-grid.notes-grid--triple,
+      .section-head,
+      #journey .section-head,
+      .journey {
+        grid-template-columns: 1fr !important;
+      }
+
+      .site-top,
+      .footer {
+        gap: 10px !important;
+      }
+
+      .site-nav {
+        justify-content: flex-start !important;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+      }
+
+      .section-head {
+        gap: 18px !important;
+      }
+
+      .section-title {
+        max-width: none !important;
+        font-size: clamp(2rem, 11vw, 3.4rem) !important;
+        line-height: 0.98 !important;
+      }
+
+      .section-copy,
+      .section-copy.emphasis,
+      .journey-head-copy,
+      .journey-lead,
+      .hero-lead,
+      .hero-note-text {
+        max-width: none !important;
+        width: 100% !important;
+      }
+
+      .hero {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        min-height: auto !important;
+        padding: 20px 0 24px !important;
+        align-items: start !important;
+      }
+
+      .hero-copy {
+        max-width: none !important;
+        width: 100% !important;
+        gap: 16px !important;
+        padding-right: 0 !important;
+        align-self: start !important;
+      }
+
+      .hero-copy > *,
+      .hero-heading {
+        width: 100% !important;
+      }
+
+      .hero-role {
+        gap: 10px !important;
+        padding-bottom: 8px !important;
+      }
+
+      .hero-role::before {
+        width: 32px !important;
+      }
+
+      .hero-title {
+        max-width: none !important;
+        font-size: clamp(2.3rem, 12vw, 4rem) !important;
+        line-height: 0.98 !important;
+        margin: 0 0 1rem !important;
+        letter-spacing: -0.04em !important;
+      }
+
+      .hero-note {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        padding-top: 12px !important;
+      }
+
+      .hero-actions {
+        width: 100% !important;
+        gap: 12px !important;
+        align-items: stretch !important;
+      }
+
+      .button {
+        width: 100% !important;
+      }
+
+      .hero-aside {
+        order: 2;
+        width: 100% !important;
+        max-width: none !important;
+        min-height: auto !important;
+        height: auto !important;
+        align-self: auto !important;
+        justify-self: stretch !important;
+        display: grid !important;
+        gap: 12px !important;
+      }
+
+      .portrait-panel {
+        aspect-ratio: 4 / 5 !important;
+        min-height: 0 !important;
+        height: auto !important;
+      }
+
+      .portrait-caption {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        inset: auto !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+        padding: 14px 0 0 !important;
+        background: none !important;
+        font-size: 0.78rem !important;
+        letter-spacing: 0.08em !important;
+      }
+
+      .portrait-caption strong {
+        font-size: 0.94rem !important;
+      }
+
+      .hero + .section {
+        padding-top: 18px !important;
+        padding-bottom: 48px !important;
+      }
+
+      .dossier-item {
+        padding: 0 !important;
+      }
+
+      .dossier-item:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+      }
+
+      #journey .section-head,
+      .journey {
+        gap: 20px !important;
+      }
+
+      .journey-head-copy {
+        margin-top: 0 !important;
+        font-size: 1rem !important;
+        line-height: 1.65 !important;
+      }
+
+      .journey-lead {
+        font-size: clamp(1.7rem, 9vw, 3rem) !important;
+        line-height: 1.04 !important;
+      }
+
+      .timeline-item,
+      .skill-row {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+
+      .projects-pin-shell,
+      .projects-stage {
+        min-height: auto !important;
+        height: auto !important;
+        display: block !important;
+        overflow: visible !important;
+      }
+
+      .project-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        gap: 16px !important;
+        transform: none !important;
+      }
+
+      .project-card {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        flex: none !important;
+        margin: 0 !important;
+        cursor: default !important;
+      }
+
+      .project-card:hover,
+      .project-card:focus-within,
+      .project-card.active {
+        width: 100% !important;
+        height: auto !important;
+        flex: none !important;
+        transform: none !important;
+      }
+
+      .project-card::before,
+      .project-card__wash,
+      .card-vertical-title {
+        display: none !important;
+      }
+
+      .card-hover-content {
+        position: relative !important;
+        inset: auto !important;
+        height: auto !important;
+        padding: 1.5rem !important;
+        justify-content: flex-start !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        overflow: visible !important;
+        z-index: auto !important;
+        color: #fff !important;
+      }
+
+      .card-hover-content h3 {
+        max-width: none !important;
+        width: 100% !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        font-size: clamp(1.55rem, 7vw, 2rem) !important;
+        line-height: 1.05 !important;
+      }
+
+      .card-hover-content .project-badge,
+      .card-hover-content p,
+      .card-hover-content .project-list {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+
+      .project-list {
+        padding-left: 1.15rem !important;
+      }
+
+      .presentation-section {
+        padding: 3.5rem 0 !important;
+      }
+
+      .presentation-container {
+        display: grid !important;
+        gap: 20px !important;
+      }
+
+      .presentation-text {
+        margin-bottom: 0 !important;
+        max-width: none !important;
+      }
+
+      .presentation-text h2 {
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+      }
+
+      .presentation-text p {
+        font-size: 1rem !important;
+      }
+
+      .bento-gallery {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: none !important;
+        height: auto !important;
+        gap: 16px !important;
+      }
+
+      .large-item {
+        grid-row: auto !important;
+        height: 320px !important;
+      }
+
+      .small-item {
+        height: 220px !important;
+      }
+
+      .ai-intro,
+      .note-card,
+      .course-card,
+      .expert-card,
+      .skill-panel {
+        padding: 24px !important;
+      }
+
+      .note-card h3,
+      .course-card h3,
+      .expert-card h3 {
+        max-width: none !important;
+        font-size: clamp(1.45rem, 7vw, 2rem) !important;
+      }
+
+      .contact-stage {
+        padding: 16px 0 !important;
+      }
+
+      .contact-word {
+        max-width: none !important;
+        font-size: clamp(1.9rem, 10vw, 3rem) !important;
+      }
+
+      .contact-handle {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
