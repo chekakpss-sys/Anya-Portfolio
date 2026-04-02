@@ -235,10 +235,14 @@
 
     .section-head {
       display: grid;
-      grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
-      gap: 28px;
+      grid-template-columns: 1fr;
+      gap: clamp(14px, 2vw, 22px);
       align-items: start;
-      margin-bottom: 34px;
+      margin-bottom: clamp(28px, 3vw, 40px);
+    }
+
+    .section-head > div:first-child {
+      max-width: min(820px, 78vw);
     }
 
     .section-title {
@@ -261,6 +265,38 @@
       font-size: 1.24rem;
       line-height: 1.58;
       color: rgba(244, 241, 235, 0.82);
+    }
+
+    .section-head > .section-copy,
+    .section-head > .journey-head-copy {
+      position: relative;
+      max-width: 44ch;
+      padding: 14px 0 0;
+      font-family: "Inter", "Manrope", sans-serif;
+      font-size: 0.94rem;
+      letter-spacing: 0.01em;
+      color: rgba(244, 241, 235, 0.66);
+      line-height: 1.64;
+      text-wrap: pretty;
+      align-self: start;
+    }
+
+    .section-head > .section-copy::before,
+    .section-head > .journey-head-copy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 1px;
+      background: rgba(92, 30, 43, 0.22);
+      box-shadow: 0 1px 0 rgba(244, 241, 235, 0.08);
+    }
+
+    .section-head > .section-copy.emphasis {
+      font-size: 0.98rem;
+      line-height: 1.68;
+      color: rgba(244, 241, 235, 0.68);
     }
 
     .hero {
@@ -594,22 +630,22 @@
     }
 
     #journey .section-head {
-      align-items: baseline;
-      grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1.18fr);
-      gap: clamp(24px, 3vw, 42px);
+      align-items: start;
+      grid-template-columns: 1fr;
+      gap: clamp(16px, 2vw, 24px);
     }
 
     .journey-head-copy {
-      max-width: 600px;
+      max-width: 44ch;
       width: 100%;
       font-family: var(--body);
-      font-size: 1rem;
-      line-height: 1.62;
+      font-size: 0.94rem;
+      line-height: 1.64;
       letter-spacing: 0.01em;
-      color: rgba(255, 255, 255, 0.72);
+      color: rgba(255, 255, 255, 0.68);
       align-self: start;
       justify-self: start;
-      margin-top: 0.3rem;
+      margin-top: 0;
     }
 
     .journey {
@@ -617,6 +653,91 @@
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
       gap: clamp(26px, 4vw, 54px);
       align-items: flex-start;
+    }
+
+    @media (min-width: 1101px) {
+      #journey {
+        display: grid;
+        grid-template-columns: minmax(320px, 0.9fr) minmax(460px, 1.1fr);
+        gap: clamp(26px, 4vw, 72px) clamp(34px, 5vw, 92px);
+        align-items: start;
+      }
+
+      #journey .section-head {
+        display: contents;
+      }
+
+      #journey .section-head > div:first-child {
+        grid-column: 1;
+        grid-row: 1;
+        max-width: none;
+      }
+
+      #journey .journey-head-copy {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: start;
+        justify-self: start;
+        max-width: 37ch;
+        margin-top: clamp(10px, 1.6vw, 20px);
+      }
+
+      #journey .journey {
+        display: contents;
+      }
+
+      #journey .journey > div:first-child {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      #journey .timeline {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      #projects,
+      #innovation {
+        display: block;
+      }
+
+      #projects .section-head,
+      #innovation .section-head {
+        display: grid;
+        grid-template-columns: minmax(420px, 0.94fr) minmax(340px, 0.76fr);
+        gap: clamp(28px, 4vw, 76px);
+        align-items: end;
+        margin-bottom: clamp(24px, 3vw, 36px);
+      }
+
+      #projects .section-head > div:first-child,
+      #innovation .section-head > div:first-child {
+        max-width: none;
+      }
+
+      #projects .section-title {
+        max-width: 13.8ch;
+      }
+
+      #innovation .section-title {
+        max-width: 12.6ch;
+      }
+
+      #projects .section-copy,
+      #innovation .section-copy {
+        max-width: 36ch;
+        align-self: end;
+        justify-self: start;
+        margin: 0 0 clamp(4px, 0.8vw, 12px);
+      }
+
+      #projects .projects-pin-shell {
+        min-width: 0;
+      }
+
+      #innovation .ai-intro {
+        margin-top: 0;
+      }
     }
 
     .journey-lead {
@@ -826,6 +947,9 @@
       position: relative;
       top: auto;
       display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: start;
       margin-bottom: clamp(24px, 3vw, 40px);
       align-self: auto;
     }
@@ -834,9 +958,35 @@
       max-width: 10.2ch;
     }
 
-    #projects .section-copy {
-      max-width: 34ch;
-      margin-top: 16px;
+    .projects-rail {
+      display: grid;
+      gap: clamp(18px, 2.4vw, 28px);
+      align-content: start;
+      min-width: 0;
+    }
+
+    .projects-lead {
+      position: relative;
+      max-width: 36ch;
+      margin: 0;
+      padding: 14px 0 0;
+      font-family: "Inter", "Manrope", sans-serif;
+      font-size: 0.94rem;
+      letter-spacing: 0.01em;
+      color: rgba(244, 241, 235, 0.66);
+      line-height: 1.64;
+      text-wrap: pretty;
+    }
+
+    .projects-lead::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 1px;
+      background: rgba(92, 30, 43, 0.22);
+      box-shadow: 0 1px 0 rgba(244, 241, 235, 0.08);
     }
 
     .projects-pin-shell {
@@ -852,13 +1002,16 @@
       display: block;
       overflow: visible;
       height: auto;
-      padding-right: 0;
+      padding: 0;
       min-height: 0;
+      border-radius: 0;
+      background: none;
+      box-shadow: none;
     }
 
     .project-grid {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       width: 100%;
       height: 65vh;
       min-height: 520px;
@@ -867,12 +1020,20 @@
 
     .project-card {
       --hover-tone: linear-gradient(180deg, rgba(92, 30, 43, 0.24), rgba(92, 30, 43, 0.08));
+      --card-overlay-top: rgba(56, 46, 40, 0.72);
+      --card-overlay-bottom: rgba(28, 23, 20, 0.84);
       position: relative;
-      flex: 1 1 0;
+      flex: 1.15 1 0;
       min-width: 0;
       min-height: 100%;
       padding: 0;
-      background: rgba(255, 255, 255, 0.025);
+      background-color: rgba(42, 34, 29, 0.24);
+      background-image:
+        linear-gradient(to bottom, var(--card-overlay-top), var(--card-overlay-bottom)),
+        url('./img/card-texture.jpg');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
       overflow: hidden;
       isolation: isolate;
       border: 1px solid rgba(244, 241, 235, 0.08);
@@ -881,10 +1042,10 @@
       cursor: pointer;
       transition:
         flex 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-        background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        background-color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.4s ease;
     }
 
     .project-card::before {
@@ -916,13 +1077,39 @@
       z-index: 3;
     }
 
-    .project-card.featured {
-      background: linear-gradient(180deg, rgba(26, 43, 35, 0.18), rgba(26, 43, 35, 0.08));
+    .project-card:nth-child(1) {
+      background-position: 18% 52%;
+    }
+
+    .project-card:nth-child(2) {
+      background-position: 40% 46%;
+    }
+
+    .project-card:nth-child(3) {
+      background-position: 62% 42%;
+    }
+
+    .project-card:nth-child(4) {
+      background-position: 84% 54%;
+    }
+
+    .project-card.featured,
+    .project-card[data-tone="pine"] {
+      --card-overlay-top: rgba(44, 41, 34, 0.7);
+      --card-overlay-bottom: rgba(23, 21, 18, 0.84);
+    }
+
+    .project-card[data-tone="wine"] {
+      --card-overlay-top: rgba(62, 48, 42, 0.74);
+      --card-overlay-bottom: rgba(30, 23, 20, 0.85);
     }
 
     .project-card:hover,
     .project-card:focus-within {
-      flex: 5 1 0;
+      --card-overlay-top: rgba(24, 19, 17, 0.95);
+      --card-overlay-bottom: rgba(12, 9, 8, 0.98);
+      flex: 4.4 1 0;
+      background-color: rgba(15, 10, 8, 0.92) !important;
       border-color: rgba(244, 241, 235, 0.18);
     }
 
@@ -972,14 +1159,14 @@
       background: rgba(92, 30, 43, 0.16);
     }
 
-    .project-card[data-tone="pine"] {
-      --hover-tone: linear-gradient(180deg, rgba(26, 43, 35, 0.28), rgba(26, 43, 35, 0.1));
-    }
-
     .project-card[data-tone="pine"]:hover .project-badge,
     .project-card[data-tone="pine"]:focus-within .project-badge {
       border-color: rgba(37, 64, 54, 0.72);
       background: rgba(37, 64, 54, 0.2);
+    }
+
+    .project-card[data-tone="pine"] {
+      --hover-tone: linear-gradient(180deg, rgba(26, 43, 35, 0.28), rgba(26, 43, 35, 0.1));
     }
 
     .card-vertical-title {
@@ -987,25 +1174,63 @@
       inset: 0;
       display: flex;
       flex-direction: column;
-      justify-content: center !important;
-      align-items: center !important;
-      padding: 2rem !important;
-      text-align: center !important;
-      font-family: var(--font-serif, "Playfair Display", serif) !important;
-      font-size: clamp(1.45rem, 1.9vw, 1.85rem) !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.02em !important;
-      line-height: 1.35 !important;
-      max-width: 18ch;
-      margin: 0 auto;
+      gap: 10px;
+      padding: 1.6rem !important;
+      font-family: "Inter", "Manrope", sans-serif !important;
+      font-size: clamp(0.92rem, 1vw, 1.02rem) !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.11em !important;
+      line-height: 1.25 !important;
       text-wrap: balance;
       word-break: normal !important;
-      hyphens: auto;
-      color: #ffffff !important;
-      opacity: 1;
+      overflow-wrap: normal !important;
+      hyphens: none;
+      text-transform: uppercase !important;
+      color: rgba(225, 214, 202, 0.78) !important;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+      opacity: 0.56;
       transition: opacity 0.3s ease;
       pointer-events: none;
       z-index: 3;
+    }
+
+    .card-vertical-title--lower-left {
+      justify-content: flex-end !important;
+      align-items: flex-start !important;
+      text-align: left !important;
+    }
+
+    .card-vertical-title--center {
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    .card-vertical-title--upper-left {
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      text-align: left !important;
+      padding-top: 2rem !important;
+    }
+
+    .card-vertical-title--lower-right {
+      justify-content: flex-end !important;
+      align-items: flex-end !important;
+      text-align: right !important;
+    }
+
+    .card-index {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      color: rgba(225, 214, 202, 0.42);
+    }
+
+    .card-label {
+      display: block;
+      max-width: 10ch;
+      text-wrap: balance;
     }
 
     .card-hover-content {
@@ -1217,15 +1442,24 @@
     }
 
     #education .section-head {
-      grid-template-columns: minmax(300px, 0.74fr) minmax(450px, 1.26fr);
+      grid-template-columns: 1fr;
       align-items: start;
     }
 
     #education .section-head .section-copy {
+      max-width: 44ch;
+      width: 100%;
+    }
+
+    #education .section-head .section-copy::before {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 1px;
       font-size: 0;
       line-height: 0;
-      max-width: 520px;
-      width: 100%;
+      color: transparent;
+      max-width: none;
     }
 
     #education .section-head .section-copy::before {
@@ -1237,12 +1471,94 @@
       max-width: 450px;
     }
 
+    #education .section-head .section-copy::before {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 1px;
+      font-size: 0;
+      line-height: 0;
+      color: transparent;
+      max-width: none;
+    }
+
     .ai-intro h3 {
       margin-bottom: 18px;
     }
 
     .ai-intro p + p {
       margin-top: 18px;
+    }
+
+    @media (min-width: 1101px) {
+      #projects .section-head {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: clamp(26px, 3vw, 56px) !important;
+        margin-bottom: clamp(18px, 2.4vw, 28px) !important;
+      }
+
+      #projects .section-head > div:first-child {
+        flex: 0 1 clamp(520px, 44vw, 760px);
+        width: clamp(520px, 44vw, 760px);
+        max-width: clamp(520px, 44vw, 760px) !important;
+        min-width: 0;
+      }
+
+      #projects .section-title {
+        max-width: none !important;
+      }
+
+      #projects .section-copy {
+        flex: 0 0 clamp(300px, 28vw, 420px);
+        max-width: clamp(300px, 28vw, 420px) !important;
+        margin: clamp(8px, 1vw, 16px) 0 0 !important;
+        align-self: flex-start !important;
+        justify-self: auto !important;
+      }
+
+      #innovation .section-head {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: clamp(26px, 3vw, 60px) !important;
+        margin-bottom: clamp(22px, 2.6vw, 32px) !important;
+      }
+
+      #innovation .section-head > div:first-child {
+        flex: 0 1 clamp(520px, 45vw, 780px);
+        width: clamp(520px, 45vw, 780px);
+        max-width: clamp(520px, 45vw, 780px) !important;
+        min-width: 0;
+      }
+
+      #innovation .section-title {
+        max-width: none !important;
+      }
+
+      #innovation .section-copy {
+        flex: 0 0 clamp(300px, 29vw, 430px);
+        max-width: clamp(300px, 29vw, 430px) !important;
+        margin: clamp(10px, 1.1vw, 18px) 0 0 !important;
+        align-self: flex-start !important;
+        justify-self: auto !important;
+      }
+
+      #innovation .ai-intro {
+        margin-top: 0 !important;
+      }
+    }
+
+    #education .section-head .section-copy::before {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 1px;
+      font-size: 0;
+      line-height: 0;
+      color: transparent;
+      max-width: none;
+      background: rgba(92, 30, 43, 0.22);
+      box-shadow: 0 1px 0 rgba(244, 241, 235, 0.08);
     }
 
     .note-card {
@@ -1590,6 +1906,11 @@
         width: 100% !important;
       }
 
+      .section-head > .section-copy,
+      .section-head > .journey-head-copy {
+        padding: 14px 0 0 !important;
+      }
+
       .hero {
         grid-template-columns: 1fr !important;
         gap: 24px !important;
@@ -1724,6 +2045,11 @@
         height: auto !important;
         display: block !important;
         overflow: visible !important;
+      }
+
+      .projects-stage {
+        padding: 0 !important;
+        border-radius: 0 !important;
       }
 
       .project-grid {
@@ -2098,7 +2424,7 @@
             <div class="project-grid">
               <article class="project-card featured" data-tone="pine" data-reveal>
                 <div class="project-card__wash" aria-hidden="true"></div>
-                <div class="card-vertical-title">Полный запуск складского учета и новой логики ТМЦ</div>
+                <div class="card-vertical-title card-vertical-title--lower-left"><span class="card-index">01</span><span class="card-label">СКЛАД И ТМЦ</span></div>
                 <div class="card-hover-content">
                   <span class="project-badge">Комплексное внедрение / девелопмент</span>
                   <h3>Запуск складского учета и строительного производства</h3>
@@ -2115,7 +2441,7 @@
 
               <article class="project-card" data-tone="wine" data-reveal data-delay="1">
                 <div class="project-card__wash" aria-hidden="true"></div>
-                <div class="card-vertical-title">Учет оборачиваемых материалов и чат-бот</div>
+                <div class="card-vertical-title card-vertical-title--center"><span class="card-index">02</span><span class="card-label">СКАНЕР И БОТ</span></div>
                 <div class="card-hover-content">
                   <span class="project-badge">SMINEX / УЧЕТ МАТЕРИАЛОВ И ИНТЕГРАЦИИ</span>
                   <h3>Учет оборачиваемых материалов и мобильный клиент</h3>
@@ -2132,7 +2458,7 @@
 
               <article class="project-card" data-tone="pine" data-reveal data-delay="2">
                 <div class="project-card__wash" aria-hidden="true"></div>
-                <div class="card-vertical-title">Интеграция B2B-закупок, аккредитации и контроля</div>
+                <div class="card-vertical-title card-vertical-title--upper-left"><span class="card-index">03</span><span class="card-label">ЗАКУПКИ И БЮДЖЕТ</span></div>
                 <div class="card-hover-content">
                   <span class="project-badge">ФСК / закупки и финансы</span>
                   <h3>Тендерные закупки, B2B-интеграции и бюджетный контроль</h3>
@@ -2150,7 +2476,7 @@
 
               <article class="project-card" data-tone="wine" data-reveal data-delay="3">
                 <div class="project-card__wash" aria-hidden="true"></div>
-                <div class="card-vertical-title">Сметный учет, развитие IT-продуктов и планирование стройки</div>
+                <div class="card-vertical-title card-vertical-title--lower-right"><span class="card-index">04</span><span class="card-label">СМЕТЫ И ПРОЕКТЫ</span></div>
                 <div class="card-hover-content">
                   <span class="project-badge">Титан-2 / атомное строительство</span>
                   <h3>Сметный учет, развитие IT-продуктов и планирование стройки</h3>
